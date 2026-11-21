@@ -1,0 +1,84 @@
+#root,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  touch-action: none;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+// Colors sampled from the source loading screen and ruled paper scene.
+:root {
+  --paper: #eeefea;
+  --ink: #454540;
+  --loading-paper: #f7c053;
+  --loading-ink: #7e5502;
+  --focus: #165d83;
+  --control-radius: 4px;
+  --page-space: 24px;
+}
+
+html, body, #root, main {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+main { position: relative; background: var(--paper); touch-action: none; }
+main:focus { outline: none; }
+main:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.scene-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--page-space);
+  padding: var(--page-space);
+  background: var(--loading-paper);
+  color: #463005;
+  font: 1rem/1.6 "Plus Jakarta Sans", sans-serif;
+  text-align: center;
+}
+.scene-fallback h1 { font-size: clamp(1.4rem, 4vw, 2rem); }
+.scene-fallback p { max-width: 42rem; }
+.scene-fallback button {
+  min-height: 44px;
+  padding: 10px 24px;
+  border: 2px solid currentColor;
+  border-radius: var(--control-radius);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.scene-fallback button:hover { background: #ffffff40; }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
